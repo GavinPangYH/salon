@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Amazing Amy’s Barbershop</title>
+</head>
+<body>
+    <h1>Amazing Amy’s Barbershop</h1>
+    <h2>A Fresh Cut You And Your Family!</h2>
+
+    <!-- Item 1 -->
+    <p>Gavin -- Chief hairdresser: 198 RMB</p>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526875843397&di=19ff68af77df0248f2ea587b97376233&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F86d6277f9e2f07087abaa43be224b899a901f24a.jpg">
+
+    <!-- Item 2 -->
+    <p>Simon -- Hairdresser director: 128 RMB</p>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526875843394&di=fe49f04539a38d8f24fd8ffc3ddb7664&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2F_d59K8j1j4R9Sk_8gW5GEw%3D%3D%2F6597833927238661796.jpg">
+
+    <!-- Item 3 --> 
+    <p>Max -- The apprentice hairdresser: 48 RMB</p>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526875906349&di=59904d973eb9a72fdab2dffef4e7fe37&imgtype=0&src=http%3A%2F%2Ff3.topitme.com%2F3%2F8c%2F8a%2F1125900954d1c8a8c3o.jpg">
+
+    <!-- User Form -->
+    <h1>Appointment</h1>
+    <form action="{% url 'haircut:home_page' %} " method="POST">
+        {% csrf_token %}
+        <input type="text" name="user" placeholder="Type Your Name"><br>
+         <input type="text" name="time" placeholder="When do you come"><br>
+        <textarea placeholder="Text The Name Of Barber" name="barber"></textarea><br>
+        <input type="submit" value="Order Now!">
+    </form>
+    
+
+    <!-- Orders -->
+    <h2>Orders</h2>
+    {% for appointment in appointments %}
+        Name: {{appointment.user}}
+        Barber: {{appointment.barber}}
+        Time: {{appointment.time}}
+    {% endfor %}
+
+</body>
+</html>
