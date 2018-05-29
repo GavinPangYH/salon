@@ -8,24 +8,25 @@
     <h2>A Fresh Cut You And Your Family!</h2>
 
     <!-- Item 1 -->
+    <hr>
     <p>Gavin -- Chief hairdresser: 198 RMB</p>
-    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526875843397&di=19ff68af77df0248f2ea587b97376233&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F86d6277f9e2f07087abaa43be224b899a901f24a.jpg">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527595046391&di=ed3efc63886c8e8a08f2a5e43289700a&imgtype=jpg&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D2302528984%2C801805057%26fm%3D214%26gp%3D0.jpg"width="600">
 
     <!-- Item 2 -->
     <p>Simon -- Hairdresser director: 128 RMB</p>
-    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526875843394&di=fe49f04539a38d8f24fd8ffc3ddb7664&imgtype=0&src=http%3A%2F%2Fimg2.ph.126.net%2F_d59K8j1j4R9Sk_8gW5GEw%3D%3D%2F6597833927238661796.jpg">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527595026851&di=bf68d301d376f2906bb7f24a38a2d3b3&imgtype=0&src=http%3A%2F%2Fwww.33oz.com%2Fwp-content%2Fuploads%2F2016%2F08%2Fee8741c09e8160a46089312cf2bc6289.jpg" width="600">
 
     <!-- Item 3 --> 
     <p>Max -- The apprentice hairdresser: 48 RMB</p>
-    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526875906349&di=59904d973eb9a72fdab2dffef4e7fe37&imgtype=0&src=http%3A%2F%2Ff3.topitme.com%2F3%2F8c%2F8a%2F1125900954d1c8a8c3o.jpg">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527595019897&di=33eda1f519c458eb1ea8b92df6296970&imgtype=0&src=http%3A%2F%2Fwww.33oz.com%2Fwp-content%2Fuploads%2F2016%2F08%2F3a63fef0735e8b7e928b302a441a7001.jpg" width="600">
 
     <!-- User Form -->
     <h1>Appointment</h1>
     <form action="{% url 'haircut:home_page' %} " method="POST">
         {% csrf_token %}
         <input type="text" name="user" placeholder="Type Your Name"><br>
-         <input type="text" name="time" placeholder="When do you come"><br>
-        <textarea placeholder="Text The Name Of Barber" name="barber"></textarea><br>
+        <input placeholder="Text The Name Of Barber" name="barber"><br>
+        <input type="text" name="time" placeholder="When do you come"><br>
         <input type="submit" value="Order Now!">
     </form>
     
@@ -33,9 +34,10 @@
     <!-- Orders -->
     <h2>Orders</h2>
     {% for appointment in appointments %}
-        Name: {{appointment.user}}
-        Barber: {{appointment.barber}}
-        Time: {{appointment.time}}
+        Name: {{appointment.user}}<br>
+        Barber: {{appointment.barber}}<br>
+        Time: {{appointment.time}}<br>
+        <hr>
     {% endfor %}
 
 </body>
