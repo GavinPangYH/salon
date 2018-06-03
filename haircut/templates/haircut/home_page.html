@@ -1,11 +1,25 @@
+
 <!DOCTYPE html>
 <html>
 <head>
- <title>Amazing Amy’s Barbershop</title>
+<meta charset="utf-8">
+<title>Amazing Amy’s Barbershop</title>
+
+<style type="text/css">
+h1{ font-size: 35px; color:white; background-color:gray; text-align: center; padding: 20px; }
+
+h3{ font-size: 25px; color:white; background-color:gray; text-align: center; padding: 20px; }
+
+p{ font-size: 18px; line-height: 1.5 text-indent: 2em; }
+
+input{ font-size: 14px; line-height: 1.5 text-indent: 2em; }
+</style>
+
 </head>
+
 <body>
     <h1>Amazing Amy’s Barbershop</h1>
-    <h2>A Fresh Cut You And Your Family!</h2>
+    <h2>A Fresh Cut For You And Your Family!</h2>
 
     <!-- Item 1 -->
     <hr>
@@ -21,18 +35,18 @@
     <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527595019897&di=33eda1f519c458eb1ea8b92df6296970&imgtype=0&src=http%3A%2F%2Fwww.33oz.com%2Fwp-content%2Fuploads%2F2016%2F08%2F3a63fef0735e8b7e928b302a441a7001.jpg" width="600">
 
     <!-- User Form -->
-    <h1>Appointment</h1>
+    <h3>Appointment</h3>
     <form action="{% url 'haircut:home_page' %} " method="POST">
         {% csrf_token %}
         <input type="text" name="user" placeholder="Type Your Name"><br>
-        <input placeholder="Text The Name Of Barber" name="barber"><br>
-        <input type="text" name="time" placeholder="When do you come"><br>
+        <input placeholder="The Name Of Barber" name="barber"><br>
+        <input type="text" name="time" placeholder="The Time Of You Arrival"><br>
         <input type="submit" value="Order Now!">
     </form>
     
 
     <!-- Orders -->
-    <h2>Orders</h2>
+    <h3>Orders</h3>
     {% for appointment in appointments %}
         Name: {{appointment.user}}<br>
         Barber: {{appointment.barber}}<br>
